@@ -9,11 +9,9 @@ width(gridWidth), height(gridHeight)
 
 void Grid::tick()
 {
-    DrawRectangle(gridRect.x, gridRect.y, gridRect.width, gridRect.height, RED);
-
     for(int i = 0; i < CalculateCellCount(); i++)
     {
-        DrawRectangle(cellRects[i].x, cellRects[i].y, cellRects[i].width, cellRects[i].height, BLUE);
+        DrawTexture(tileTex, cellRects[i].x, cellRects[i].y, WHITE);
     }
 }
 

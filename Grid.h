@@ -12,6 +12,7 @@ public:
     void createCells();
 
 private:
+    Texture2D tileTex = LoadTexture("assets/Tile.png");
     float width{};
     float height{};
     float topRight{};
