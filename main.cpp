@@ -9,8 +9,8 @@ int main()
     InitWindow(windowWidth, windowHeight, "Grid Prototype");
 
     Texture2D levelTex = LoadTexture("assets/LevelMap.png");
-    float levelPosX = static_cast<float>(windowWidth / 2) - (levelTex.width / 2);
-    float levelPosY = static_cast<float>(windowHeight / 2) - (levelTex.height / 2);
+    float levelPosX = static_cast<float>(windowWidth / 2) - static_cast<float>(levelTex.width / 2);
+    float levelPosY = static_cast<float>(windowHeight / 2) - static_cast<float>(levelTex.height / 2);
 
     Grid testGrid(levelTex.width, levelTex.height);
     testGrid.createCells();

@@ -11,7 +11,7 @@ void Grid::tick()
 {
     for(int i = 0; i < CalculateCellCount(); i++)
     {
-        DrawTexture(tileTex, cellRects[i].x, cellRects[i].y, WHITE);
+        cells[i].tick();
     }
 }
 
@@ -25,7 +25,8 @@ void Grid::createCells()
 {
     for(int i = 0; i < CalculateCellCount(); i++)
     {
-        cellRects[i] = Rectangle{currentGridPos.x, currentGridPos.y, 16.f, 16.f};
+        cellRect = Rectangle{currentGridPos.x, currentGridPos.y, 16.f, 16.f};
+        cells[i].setRect(cellRect);
         currentGridPos.x += 16.f;
         if (currentGridPos.x > topRight - 16.f)
         {

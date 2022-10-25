@@ -2,6 +2,7 @@
 #define GRID_H
 
 #include "raylib.h"
+#include "Cell.h"
 
 class Grid
 {
@@ -18,7 +19,8 @@ private:
     float topRight{};
     const int cellCount = CalculateCellCount();
     Rectangle gridRect{(430.f - width/2), (270.f - height/2), width, height};
-    Rectangle *cellRects = new Rectangle[cellCount];
+    Rectangle cellRect{};
+    Cell *cells = new Cell[cellCount];
     Vector2 currentGridPos{};
 };
 
