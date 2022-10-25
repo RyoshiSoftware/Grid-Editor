@@ -17,7 +17,7 @@ private:
     float topRight{};
     int cellTotal{};
     Rectangle gridRect{(430.f - width/2), (270.f - height/2), width, height};
-    Rectangle *cellRects = new Rectangle[cellTotal];
+    Rectangle *cellRects = new Rectangle[9999];
     Vector2 currentGridPos{};
 };
 

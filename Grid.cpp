@@ -19,7 +19,7 @@ void Grid::tick()
 
 int Grid::CalculateCellCount()
 {
-    // cellTotal = static_cast<int>((width * height) / (16.f * 16.f));
+    cellTotal = static_cast<int>((width * height) / (16.f * 16.f));
     return static_cast<int>(cellTotal);
 }
 
@@ -29,5 +29,10 @@ void Grid::createCells()
     {
         cellRects[i] = Rectangle{currentGridPos.x, currentGridPos.y, 16.f, 16.f};
         currentGridPos.x += 16.f;
+        if (currentGridPos.x > topRight - 16.f)
+        {
+            currentGridPos.x = gridRect.x;
+            currentGridPos.y += 16.f;
+        }
     }
 }
