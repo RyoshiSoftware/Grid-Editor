@@ -6,5 +6,6 @@ Cell::Cell()
 
 void Cell::tick()
 {
-    DrawTexture(texture, rect.x, rect.y, WHITE);
+    if (isUsable) { DrawTexture(texture, rect.x, rect.y, WHITE); }
+    else { DrawTexture(texture, rect.x, rect.y, RED); }
 }
