@@ -8,12 +8,12 @@ int main()
 
     InitWindow(windowWidth, windowHeight, "Grid Prototype");
 
-    Grid testGrid(256, 256);
-    testGrid.createCells();
-
     Texture2D levelTex = LoadTexture("assets/LevelMap.png");
     float levelPosX = static_cast<float>(windowWidth / 2) - (levelTex.width / 2);
     float levelPosY = static_cast<float>(windowHeight / 2) - (levelTex.height / 2);
+
+    Grid testGrid(levelTex.width, levelTex.height);
+    testGrid.createCells();
 
     SetTargetFPS(60);
     while(!WindowShouldClose())
