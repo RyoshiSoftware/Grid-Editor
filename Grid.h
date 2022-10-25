@@ -16,9 +16,9 @@ private:
     float width{};
     float height{};
     float topRight{};
-    int cellTotal{};
+    const int cellCount = CalculateCellCount();
     Rectangle gridRect{(430.f - width/2), (270.f - height/2), width, height};
-    Rectangle *cellRects = new Rectangle[9999];
+    Rectangle *cellRects = new Rectangle[cellCount];
     Vector2 currentGridPos{};
 };
 

@@ -17,7 +17,7 @@ void Grid::tick()
 
 int Grid::CalculateCellCount()
 {
-    cellTotal = static_cast<int>((width * height) / (16.f * 16.f));
+    int cellTotal{static_cast<int>((width * height) / (16.f * 16.f))};
     return static_cast<int>(cellTotal);
 }
 
