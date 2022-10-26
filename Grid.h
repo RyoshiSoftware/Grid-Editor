@@ -23,7 +23,6 @@ private:
     Rectangle cellRect{};
     Cell *cells = new Cell[cellCount];
     Vector2 currentGridPos{};
-    int currentVal{100};
 };
 
 #endif
