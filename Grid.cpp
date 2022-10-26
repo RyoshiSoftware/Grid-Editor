@@ -1,8 +1,4 @@
 #include "Grid.h"
-#include "stdlib.h"
-#include "stdio.h"
-#include "string.h"
-#include "stdlib.h"
 
 Grid::Grid(float gridWidth, float gridHeight, Texture2D cellTex) :
 width(gridWidth), height(gridHeight), tileTex(cellTex)
@@ -17,7 +13,6 @@ void Grid::tick()
     {
         cells[i].tick();
     }
-    DrawText(TextFormat("Current Value: %i", currentVal), 100, 100, 26, BLACK);
 }
 
 int Grid::CalculateCellCount()
@@ -44,8 +39,14 @@ void Grid::createCells()
 
 void Grid::setUnusableCells(int cellIndexes[], int size)
 {
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < cellCount; i++)
     {
-        currentVal = cellIndexes[i];
+        for (int n = 0; n < size; n++)
+        {
+            if (cellIndexes[n] == i)
+            {
+                cells[i].setUsable(false);
+            }
+        }
     }
 }
