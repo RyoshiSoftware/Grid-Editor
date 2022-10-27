@@ -37,16 +37,13 @@ void Grid::createCells()
     }
 }
 
-void Grid::setUnusableCells(int cellIndexes[], int size)
+void Grid::setUnusableCells(int cellIndex)
 {
     for (int i = 0; i < cellCount; i++)
     {
-        for (int n = 0; n < size; n++)
+        if (cellIndex == i)
         {
-            if (cellIndexes[n] == i)
-            {
-                cells[i].setUsable(false);
-            }
+            cells[i].setUsable(false);
         }
     }
 }

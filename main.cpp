@@ -17,9 +17,6 @@ int main()
 
     Grid testGrid((levelTex.width - 48), (levelTex.height - 48), levelPreloader.GetTileTexture());
     testGrid.createCells();
-    int unusableCellSize{17};
-    int unusableCells[17] = {27, 28, 29, 30, 31, 47, 53, 68, 70, 72, 74, 89, 91, 93, 95, 111, 115};
-    testGrid.setUnusableCells(unusableCells, unusableCellSize);
 
     SetTargetFPS(60);
     while(!WindowShouldClose())
@@ -28,6 +25,22 @@ int main()
         ClearBackground(WHITE);
 
         DrawTexture(levelTex, levelPosX, levelPosY, WHITE);
+
+        Vector2 mousePos = GetMousePosition();
+        DrawCircleV(mousePos, 5.f, BLACK);
+
+        for (int i = 0; i < testGrid.CalculateCellCount(); i++)
+        {
+            if (
+                mousePos.x > testGrid.getCurrentCell(i).getRect().x 
+                && mousePos.x < testGrid.getCurrentCell(i).getRect().x + 16.f 
+                && mousePos.y > testGrid.getCurrentCell(i).getRect().y 
+                && mousePos.y < testGrid.getCurrentCell(i).getRect().y + 16.f
+            )
+            {
+                testGrid.setUnusableCells(i);
+            }
+        }
 
         testGrid.tick();
 

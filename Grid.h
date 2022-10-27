@@ -11,7 +11,8 @@ public:
     void tick();
     int CalculateCellCount();
     void createCells();
-    void setUnusableCells(int cellIndexes[], int size);
+    void setUnusableCells(int cellIndex);
+    Cell getCurrentCell(int cellIndex) { return cells[cellIndex]; }
 
 private:
     float width{};
