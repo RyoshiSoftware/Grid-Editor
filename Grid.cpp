@@ -1,4 +1,7 @@
 #include "Grid.h"
+#include <iostream>
+#include <fstream>
+#include<direct.h>
 
 Grid::Grid(float gridWidth, float gridHeight, Texture2D cellTex) :
 width(gridWidth), height(gridHeight), tileTex(cellTex)
@@ -46,4 +49,18 @@ void Grid::setUnusableCells(int cellIndex)
             cells[i].setUsable(false);
         }
     }
+}
+
+
+void Grid::saveCells()
+{
+    std::ofstream myfile;    
+    if(mkdir("./save") == -1)
+        std::cerr << " Error : " << strerror(errno) << std::endl;
+    myfile.open ("./save/grid_state.txt");
+    for(int x=0; x <= cellCount; x++){
+        myfile << cells[x].getUsable();
+    }
+    myfile << "\n";
+    myfile.close();
 }

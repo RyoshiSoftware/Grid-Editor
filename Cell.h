@@ -12,6 +12,7 @@ public:
     void setRect(Rectangle cellRect) { rect = cellRect; }
     void setTex(Texture2D cellTex) { texture = cellTex; }
     void setUsable(bool canBeUsed) { isUsable = canBeUsed; }
+    bool getUsable(){ return isUsable; }
     Rectangle getRect() { return rect; }
 
 private:

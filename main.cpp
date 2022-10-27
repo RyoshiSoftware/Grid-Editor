@@ -41,7 +41,9 @@ int main()
                 testGrid.setUnusableCells(i);
             }
         }
-
+        if(IsKeyDown(KEY_LEFT_CONTROL) && IsKeyDown(KEY_S)){
+            testGrid.saveCells();
+        }
         testGrid.tick();
 
         EndDrawing();
