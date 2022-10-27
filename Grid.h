@@ -3,6 +3,7 @@
 
 #include "raylib.h"
 #include "Cell.h"
+#include <string>
 
 class Grid
 {
@@ -13,7 +14,7 @@ public:
     void createCells();
     void setUnusableCells(int cellIndex);
     Cell getCurrentCell(int cellIndex) { return cells[cellIndex]; }
-    void saveCells();
+    void saveGridInfo(std::string fileName);
 
 private:
     float width{};

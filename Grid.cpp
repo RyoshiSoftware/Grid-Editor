@@ -52,13 +52,17 @@ void Grid::setUnusableCells(int cellIndex)
 }
 
 
-void Grid::saveCells()
+void Grid::saveGridInfo(std::string fileName)
 {
     std::ofstream myfile;    
     if(mkdir("./save") == -1)
         std::cerr << " Error : " << strerror(errno) << std::endl;
-    myfile.open ("./save/grid_state.txt");
-    for(int x=0; x <= cellCount; x++){
+    myfile.open ("./save/" + fileName);
+    myfile << width;
+    myfile << height;
+    myfile << cellCount;
+    for(int x = 0; x <= cellCount; x++)
+    {
         myfile << cells[x].getUsable();
     }
     myfile << "\n";
