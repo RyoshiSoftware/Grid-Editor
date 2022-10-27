@@ -13,6 +13,7 @@ public:
     void createCells();
     void setUnusableCells(int cellIndex);
     Cell getCurrentCell(int cellIndex) { return cells[cellIndex]; }
+    void saveCells();
 
 private:
     float width{};
