@@ -12,7 +12,7 @@ public:
     void tick();
     int CalculateCellCount();
     void createCells();
-    void setUnusableCells(int cellIndex);
+    void setCellStatus(int cellIndex, bool cellUsable);
     Cell getCurrentCell(int cellIndex) { return cells[cellIndex]; }
     void saveGridInfo(std::string fileName);
 

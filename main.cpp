@@ -29,21 +29,42 @@ int main()
         Vector2 mousePos = GetMousePosition();
         DrawCircleV(mousePos, 5.f, BLACK);
 
-        for (int i = 0; i < testGrid.CalculateCellCount(); i++)
+        if (IsMouseButtonDown(MOUSE_BUTTON_LEFT))
         {
-            if (
-                mousePos.x > testGrid.getCurrentCell(i).getRect().x 
-                && mousePos.x < testGrid.getCurrentCell(i).getRect().x + 16.f 
-                && mousePos.y > testGrid.getCurrentCell(i).getRect().y 
-                && mousePos.y < testGrid.getCurrentCell(i).getRect().y + 16.f
-            )
+            for (int i = 0; i < testGrid.CalculateCellCount(); i++)
             {
-                testGrid.setUnusableCells(i);
+                if (
+                    mousePos.x > testGrid.getCurrentCell(i).getRect().x 
+                    && mousePos.x < testGrid.getCurrentCell(i).getRect().x + 16.f 
+                    && mousePos.y > testGrid.getCurrentCell(i).getRect().y 
+                    && mousePos.y < testGrid.getCurrentCell(i).getRect().y + 16.f
+                )
+                {
+                    testGrid.setCellStatus(i, false);
+                }
             }
         }
+
+        if (IsMouseButtonDown(MOUSE_BUTTON_RIGHT))
+        {
+            for (int i = 0; i < testGrid.CalculateCellCount(); i++)
+            {
+                if (
+                    mousePos.x > testGrid.getCurrentCell(i).getRect().x 
+                    && mousePos.x < testGrid.getCurrentCell(i).getRect().x + 16.f 
+                    && mousePos.y > testGrid.getCurrentCell(i).getRect().y 
+                    && mousePos.y < testGrid.getCurrentCell(i).getRect().y + 16.f
+                )
+                {
+                    testGrid.setCellStatus(i, true);
+                }
+            }
+        }
+
         if(IsKeyDown(KEY_LEFT_CONTROL) && IsKeyDown(KEY_S)){
             testGrid.saveGridInfo("testLevelGrid.txt");
         }
+
         testGrid.tick();
 
         EndDrawing();

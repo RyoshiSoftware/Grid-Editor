@@ -40,31 +40,37 @@ void Grid::createCells()
     }
 }
 
-void Grid::setUnusableCells(int cellIndex)
+void Grid::setCellStatus(int cellIndex, bool cellUsable)
 {
     for (int i = 0; i < cellCount; i++)
     {
         if (cellIndex == i)
         {
-            cells[i].setUsable(false);
+            cells[i].setUsable(cellUsable);
         }
     }
 }
 
-
 void Grid::saveGridInfo(std::string fileName)
 {
     std::ofstream myfile;    
+
     if(mkdir("./save") == -1)
+    {
         std::cerr << " Error : " << strerror(errno) << std::endl;
+    }
+
     myfile.open ("./save/" + fileName);
+
     myfile << width;
     myfile << height;
     myfile << cellCount;
+
     for(int x = 0; x <= cellCount; x++)
     {
         myfile << cells[x].getUsable();
     }
+
     myfile << "\n";
     myfile.close();
 }
