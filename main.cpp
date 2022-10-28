@@ -62,7 +62,7 @@ int main()
         }
 
         if(IsKeyDown(KEY_LEFT_CONTROL) && IsKeyDown(KEY_S)){
-            testGrid.saveGridInfo("testLevelGrid.txt");
+            testGrid.saveGridInfo("testLevelGrid.dat");
         }
 
         testGrid.tick();

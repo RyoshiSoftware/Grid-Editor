@@ -63,12 +63,16 @@ void Grid::saveGridInfo(std::string fileName)
     myfile.open ("./save/" + fileName);
 
     myfile << width;
+    myfile << "\n";
     myfile << height;
+    myfile << "\n";
     myfile << cellCount;
+    myfile << "\n";
 
     for(int x = 0; x <= cellCount; x++)
     {
         myfile << cells[x].getUsable();
+        myfile << "\n";
     }
 
     myfile << "\n";
