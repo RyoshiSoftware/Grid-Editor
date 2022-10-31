@@ -40,7 +40,7 @@ int main()
                     && mousePos.y < testGrid.getCurrentCell(i).getRect().y + 16.f
                 )
                 {
-                    testGrid.setCellStatus(i, false);
+                    testGrid.setCellStatus(i, 0);
                 }
             }
         }
@@ -56,7 +56,7 @@ int main()
                     && mousePos.y < testGrid.getCurrentCell(i).getRect().y + 16.f
                 )
                 {
-                    testGrid.setCellStatus(i, true);
+                    testGrid.setCellStatus(i, 1);
                 }
             }
         }

@@ -11,14 +11,14 @@ public:
     void tick();
     void setRect(Rectangle cellRect) { rect = cellRect; }
     void setTex(Texture2D cellTex) { texture = cellTex; }
-    void setUsable(bool canBeUsed) { isUsable = canBeUsed; }
-    bool getUsable(){ return isUsable; }
+    void setUsable(int state);
+    int getUsable(){ return usabilityState; }
     Rectangle getRect() { return rect; }
 
 private:
     Texture2D texture{};
     Rectangle rect{};
-    bool isUsable{true};
+    int usabilityState{1};
 };
 
 #endif

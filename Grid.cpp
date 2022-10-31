@@ -40,13 +40,13 @@ void Grid::createCells()
     }
 }
 
-void Grid::setCellStatus(int cellIndex, bool cellUsable)
+void Grid::setCellStatus(int cellIndex, int cellState)
 {
     for (int i = 0; i < cellCount; i++)
     {
         if (cellIndex == i)
         {
-            cells[i].setUsable(cellUsable);
+            cells[i].setUsable(cellState);
         }
     }
 }
@@ -62,19 +62,11 @@ void Grid::saveGridInfo(std::string fileName)
 
     myfile.open ("./save/" + fileName);
 
-    myfile << width;
-    myfile << "\n";
-    myfile << height;
-    myfile << "\n";
-    myfile << cellCount;
-    myfile << "\n";
-
-    for(int x = 0; x <= cellCount; x++)
+    for(int i = 0; i <= cellCount - 1; i++)
     {
-        myfile << cells[x].getUsable();
+        myfile << cells[i].getUsable();
         myfile << "\n";
     }
 
-    myfile << "\n";
     myfile.close();
 }
